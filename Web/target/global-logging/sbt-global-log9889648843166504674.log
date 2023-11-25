@@ -1,0 +1,10 @@
+[debug] > Exec(compile, None, None)
+[debug] Evaluating tasks: Compile / compile
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Scala source to C:\Users\jackg\IdeaProjects\Web\target\scala-3.3.1\classes ...
+[warn] there was 1 deprecation warning; re-run with -deprecation for details
+[warn] one warning found
+[info] done compiling
+[debug] Forcing garbage collection...
+[success] Total time: 0 s, completed Nov 22, 2023, 4:37:45 PM
+[debug] > Exec(idea-shell, None, None)
