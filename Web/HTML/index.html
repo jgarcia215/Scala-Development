@@ -13,15 +13,14 @@
             padding: 20px;
             background-color: #f8f8f8;
             color: #333;
+            text-align: center; /* Center-align content */
         }
 
         h1 {
             color: #2e4053;
-            text-align: center;
         }
 
         p {
-            text-align: center;
             margin: 10px 0;
         }
 
@@ -29,11 +28,13 @@
             font-weight: bold;
         }
 
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            color: #777;
+        a, button, img {
+            display: block;
+            margin: 0 auto;
+            color: black; /* Set color to black */
+            margin-bottom: 10px;
         }
+
     </style>
 </head>
 
@@ -41,10 +42,10 @@
     <h1>Scala Language Website</h1>
     <p>By: Jack Garcia, Max Tumir, Nolan Stetz</p>
     <p id="currentTime"></p>
-    <img src="SCALA-Programming.png" alt="Scala Logo" style="display: block; margin: 0 auto; max-width: 100%;">
-
+    <a href="https://www.scala-lang.org/" target="_blank">Visit the Scala Official Website</a>
+    <button onclick="calculateComparison()">Calculate Comparison</button>
+    <img src="SCALA-Programming.png" alt="Scala Logo">
     <script src="script.js"></script>
-
 </body>
 
 </html>
