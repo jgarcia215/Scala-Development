@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,10 +10,10 @@
             padding: 20px;
             background-color: #f8f8f8;
             color: #333;
-            text-align: center; /* Center-align content */
+            /* text-align: center; /* Center-align content */
         }
 
-        h1 {
+        h1, h2 {
             color: #2e4053;
         }
 
@@ -24,28 +21,225 @@
             margin: 10px 0;
         }
 
-        #currentTime {
-            font-weight: bold;
-        }
-
-        a, button, img {
-            display: block;
+        a, button {
             margin: 0 auto;
             color: black; /* Set color to black */
             margin-bottom: 10px;
         }
 
+        img {
+            margin: 10px;
+            width: 500px;
+            height: auto;
+        }
+
+        code {
+            text-align: left;
+        }
+
+        hr.divider {
+            border-top: 3px solid #000000;
+        }
+
     </style>
 </head>
 
-<body>
-    <h1>Scala Language Website</h1>
-    <p>By: Jack Garcia, Max Tumir, Nolan Stetz</p>
-    <p id="currentTime"></p>
+<html>
+
+<h1>Scala Language Website</h1>
+<h2>By: Jack Garcia, Max Tumir, Nolan Stetz</h2>
+
+<div class="tab">
+    <button class="tablinks" onclick="openPage('Home', this)" id="default">Home</button>
+    <button class="tablinks" onclick="openPage('Scala', this)">About Scala</button>
+    <button class="tablinks" onclick="openPage('Project', this)">About Project</button>
+</div>
+
+<div id="Home" class="tabcontent">
+    <h3>Home</h3>
+
+    <p>
+
+        <!-- TODO: put graph here -->
+    <p> Current variables:
+        <span class="output"></span>
+    </p>
+    <!-- above is temp to make sure input is received from site -->
+
+    <!-- <p>
+      <embed
+          src="wherever the graph goes"
+          type="application/pdf"
+          frameBorder="0"
+          scrolling="auto"
+          height="100%"
+          width="100%"
+      ></embed>
+    </p> -->
+
+    <br> <br>
+
+    <select stock="stock-names" id="stock-names">
+        <option value="S&P">S&P 500</option>
+        <option value="Dow">Dow 30</option>
+        <option value="Nasdaq">Nasdaq</option>
+        <option value="Russell">Russell 2000</option>
+    </select>
+
+    <select timeframe="timeframe" id="timeframe">
+        <option value="1M">1 Month</option>
+        <option value="2M">2 Months</option>
+        <option value="3M">3 Months</option>
+        <option value="4M">4 Months</option>
+        <option value="5M">5 Months</option>
+    </select>
+
+    <br> <br>
+
+    <button class="graphrun" onclick="makeGraph()">Generate!</button>
+
+    <br> <br>
+
     <a href="https://www.scala-lang.org/" target="_blank">Visit the Scala Official Website</a>
-    <button onclick="calculateComparison()">Calculate Comparison</button>
+
+    <br > <br>
+
     <img src="SCALA-Programming.png" alt="Scala Logo">
-    <script src="script.js"></script>
-</body>
+
+    </p>
+</div>
+
+<div id="Scala" class="tabcontent">
+    <h3>About Scala</h3>
+    <p>
+
+        Scala is a programming language that was created by Martin Odersky and first released in 2003.
+        Its development was influenced by several programming languages and paradigms, and it aimed
+        to provide a language that combines object-oriented and functional programming features. Odersky
+        developed Scala at the École Polytechnique Fédérale de Lausanne (EPFL) in Switzerland in 2001.
+        Early adopters of Scala are tech companies such as Twitter and Linkedln, which used Scala for back
+        end services. In the early 2010's it went through the standardization process and thus created the
+        Scala Standard Library. Odersky helped develop the precursor to the Java compiler which motivated
+        him to create Scala -- which was designed to address the criticisms of Java.
+
+    <hr class="divider">
+
+    <h3>Sample Programs</h3>
+
+    Though Scala parameters may look odd, it does follow OOP principles familar to those who
+    have used Java.
+
+    <code>
+
+        <br> <br>
+        // Define a simple class <br>
+        class Person(name: String, age: Int) { <br>
+        &emsp;  def displayInfo(): Unit = { <br>
+        &emsp;&emsp;    println(s"Name: $name, Age: $age") <br>
+        &emsp;  } <br>
+        } <br>
+        <br>
+        // Create an instance of the class <br>
+        val person1 = new Person("Alice", 25) <br>
+        <br>
+        // Call a method on the object <br>
+        person1.displayInfo() <br>
+        <br> <br>
+
+    </code>
+
+    Scala can perform basic functions like Java, such as using a for loop. However, it
+    also offers shorter and cleaner versions of these tools.
+
+    <code>
+
+        <br> <br>
+        // Create a list of numbers <br>
+        val numbers = List(1, 2, 3, 4, 5) <br>
+        <br>
+        // Loop through the list and print each element <br>
+        for (num <- numbers) { <br>
+        &emsp;  println(num) <br>
+        } <br>
+        <br>
+        // Using a for each loop <br>
+        numbers.foreach(num => println(num)) <br>
+        <br> <br>
+
+    </code>
+
+
+    </p>
+</div>
+
+<div id="Project" class="tabcontent">
+    <h3>About Project</h3>
+    <p>
+
+        This website is our submission for the Language Website assignment of CS354. On the
+        backend, three Scala programs are used, allowing for the site to scrape Yahoo Finance
+        for stock information, parse the information gleaned, and export the information as
+        a graph. On the frontend, HTML and JavaScript are used to create the site you're looking
+        at, taking user input via dropdown menus, and using it to generate a graph with the Scala
+        program.
+
+        <br> <br>
+
+        Our project was chosen in order for us to gain experience not only with Scala, but
+        with web development as well. None of us had experience with webservers prior
+        to beginning this project, so choosing a project that required additional interactions
+        with websites, such as Yahoo Finance, proved to be an educational experience.
+
+    </p>
+</div>
+
+<script>
+
+    /**
+     * openPage function modified from w3schools
+     *  https://www.w3schools.com/howto/howto_js_full_page_tabs.asp
+     */
+
+    function openPage(pageName,elmnt) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        document.getElementById(pageName).style.display = "block";
+    }
+
+    document.getElementById("default").click();
+</script>
+
+<script>
+    function makeGraph() {
+        stock = document.querySelector('#stock-names');
+        time = document.querySelector('#timeframe');
+
+        // TODO: plug in input to scala prog for graph, send graph.png to output
+
+        // output =
+        // document.querySelector('.gen-graph') = output;
+
+        // $.ajax({
+        //     url : 'hello.jsp', // Your Servlet mapping or JSP(not suggested)
+        //     type : 'String',
+        //     dataType : 'html', // Returns HTML as plain text; included script tags are evaluated when inserted in the DOM.
+        //     success : function(response) {
+        //         $('#outputDiv').html(response); // create an empty div in your page with some id
+        //     },
+        //     error : function(request, textStatus, errorThrown) {
+        //         alert(errorThrown);
+        //     }
+        // });
+
+
+
+        output = stock.value + " " + time.value;
+        document.querySelector('.output').textContent = output;
+    }
+</script>
 
 </html>
