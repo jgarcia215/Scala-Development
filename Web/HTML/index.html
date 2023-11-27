@@ -21,6 +21,10 @@
             margin: 10px 0;
         }
 
+        #currentTime {
+            font-weight: bold;
+        }
+
         a, button {
             margin: 0 auto;
             color: black; /* Set color to black */
@@ -28,13 +32,8 @@
         }
 
         img {
-            margin: 10px;
             width: 500px;
             height: auto;
-        }
-
-        code {
-            text-align: left;
         }
 
         hr.divider {
@@ -60,22 +59,9 @@
 
     <p>
 
-        <!-- TODO: put graph here -->
-    <p> Current variables:
+    <p> Stock graph: <br>
         <span class="output"></span>
     </p>
-    <!-- above is temp to make sure input is received from site -->
-
-    <!-- <p>
-      <embed
-          src="wherever the graph goes"
-          type="application/pdf"
-          frameBorder="0"
-          scrolling="auto"
-          height="100%"
-          width="100%"
-      ></embed>
-    </p> -->
 
     <br> <br>
 
@@ -104,7 +90,7 @@
 
     <br > <br>
 
-    <img src="SCALA-Programming.png" alt="Scala Logo">
+    <img src="scala-logo.png" alt="Scala Logo">
 
     </p>
 </div>
@@ -149,7 +135,7 @@
     </code>
 
     Scala can perform basic functions like Java, such as using a for loop. However, it
-    also offers shorter and cleaner versions of these tools.
+    also offers shorter and cleaner versions of these tools as well.
 
     <code>
 
@@ -215,30 +201,14 @@
 
 <script>
     function makeGraph() {
-        stock = document.querySelector('#stock-names');
-        time = document.querySelector('#timeframe');
+        const stock = document.querySelector('#stock-names');
+        const time = document.querySelector('#timeframe');
 
-        // TODO: plug in input to scala prog for graph, send graph.png to output
+        // TODO: build the graph with Main.main
 
-        // output =
-        // document.querySelector('.gen-graph') = output;
-
-        // $.ajax({
-        //     url : 'hello.jsp', // Your Servlet mapping or JSP(not suggested)
-        //     type : 'String',
-        //     dataType : 'html', // Returns HTML as plain text; included script tags are evaluated when inserted in the DOM.
-        //     success : function(response) {
-        //         $('#outputDiv').html(response); // create an empty div in your page with some id
-        //     },
-        //     error : function(request, textStatus, errorThrown) {
-        //         alert(errorThrown);
-        //     }
-        // });
-
-
-
-        output = stock.value + " " + time.value;
-        document.querySelector('.output').textContent = output;
+        const img = new Image(100, 200);
+        img.src = "chart.jpeg";
+        document.querySelector('.output').replaceWith(img);
     }
 </script>
 
